@@ -13,6 +13,26 @@ body {
     background: linear-gradient(to top, #d8dbd5 calc(100vh - 100px), #009688 100px);
 }
 
+/* COMMON */
+.icons {
+    display: flex;
+    align-items: center;
+}
+.icons i {
+    font-size: 1.3rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #b1b1b1;
+}
+
+/* HOVER EFFECTS */
+.icons i:hover {
+    color: #7e7d7d;
+}
+.input-text i:hover {
+    color: rgb(18, 116, 228);
+}
+
 /* MAIN */
 .container {
     display: flex;
@@ -51,16 +71,6 @@ body {
 .name {
     font-size: 1.1rem;
     font-weight: 700;
-}
-.icons {
-    display: flex;
-    align-items: center;
-}
-.icons i {
-    font-size: 1.3rem;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #b1b1b1;
 }
 
 /* notification and its style content */
