@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
 /* BODY */
@@ -26,30 +27,123 @@ body {
     height: 100%;
     background-color: blue;
 }
+
+/* personal info and its style content */
 .personal-info {
     height: 70px;
     width: 100%;
-    background-color: green;
+    background-color: #eaeaea;
 }
+.pic-and-name {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.pic {
+    display: flex;
+    align-items: center;
+}
+.pic img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.name {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.icons {
+    display: flex;
+    align-items: center;
+}
+.icons i {
+    font-size: 1.3rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #b1b1b1;
+}
+
+/* notification and its style content */
 .notifications {
+    display: flex;
     height: 80px;
     width: 100%;
     background-color: #8edafc;
+    padding: 15px;
 }
+.notific-alarm {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.notific-alarm i {
+    font-size: 1.4rem;
+    color: #8edafc;
+}
+.notific-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+}
+.notific-text a {
+    font-size: .9rem;
+    color: #4f7485;
+}
+
+/* find contact and its style content */
 .find-contact {
-    height: 40px;
+    position: relative;
+    height: 45px;
     width: 100%;
     background-color: #fff;
     display: flex;
+    padding: 5px;
 }
 .find-contact input {
-    width: 90%;
+    width: 100%;
     height: 100%;
     margin-left: auto;
+    padding-left: 80px;
+    /* color: #acacac; */
+    border: 1px solid #e2e2e2;
 }
+.find-contact i {
+    position: absolute;
+    left: 32.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b6b9bb;
+}
+
+/* contact list and its style content */
 .contact-list {
     width: 100%;
     height: calc(100% - 190px);
-    background-color: brown;
+    background-color: #fff;
     overflow-y: scroll;
+}
+.contact-list li {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    line-height: 60px;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    border-top: 1px solid #e2e2e2; 
+}
+.contact-list li:hover {
+    background-color: #e2e2e2;
+}
+.contact-list li img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.contact-list li div {
+    margin-left: 20px;
 }
