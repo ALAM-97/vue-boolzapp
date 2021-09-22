@@ -27,7 +27,7 @@ const app = new Vue({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: false,
+                visible: true,
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
@@ -48,7 +48,7 @@ const app = new Vue({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: false,
+                visible: true,
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -67,9 +67,9 @@ const app = new Vue({
                 ],
             },
             {
-                name: 'Luisa',
+                name: 'Luiso',
                 avatar: '_4',
-                visible: false,
+                visible: true,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -85,7 +85,7 @@ const app = new Vue({
         ],
         contactIndex: 0,
         messageText: '',
-        actualDate: '',
+        actualDate: ''
     },
     methods: {
         changeChat: function (index) {
@@ -99,7 +99,7 @@ const app = new Vue({
                         message: this.messageText,
                         status: 'sent'
                     }
-                )
+                );
                 this.messageText = '';
                 setTimeout(() => {
                     this.contacts[this.contactIndex].messages.push(
@@ -109,16 +109,19 @@ const app = new Vue({
                             status: 'received'
                         }
                     )
-                }, 2000);
+                }, 5000);
             }
         },
-        getDate: function () {
-            this.actualDate = dayjs().get('date') + '/' +
-                dayjs().get('month') + '/' +
-                dayjs().get('year') + " " +
-                dayjs().get('hour') + ':' +
-                dayjs().get('minute') + ':' +
-                dayjs().get('seconds');
-        },        
+        timeNow: function () {
+            setInterval(() => {
+                this.actualDate =
+                    dayjs().format('DD/MM/YYYY') + " " +
+                    dayjs().format('HH:mm:ss');
+
+            }, 1000);
+        }
     },
+    mounted: function() {
+        this.timeNow();
+    }
 });

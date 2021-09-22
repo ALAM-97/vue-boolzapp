@@ -93,7 +93,7 @@
                         <!-- INPUT-TEXT -->
                         <div class="input-text">
                             <i class="far fa-smile"></i>
-                            <input type="text" name="" id="" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage()" @click="actualDate()">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage()" @input="getDate()">
                             <i class="fas fa-microphone"></i>
                         </div>
                     </section>  
