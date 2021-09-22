@@ -54,7 +54,7 @@
                         </div>
                         <div class="contact-list">
                             <ul v-for="(contact, index) in contacts" :key="index" >
-                                <li :class="(index === 0) ? 'active' : null" @click="findKey(index)">
+                                <li :class="(index === contactIndex) ? 'active' : null" @click="changeChat(index)">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                     <div>{{contact.name}}</div>
                                 </li>
@@ -67,10 +67,10 @@
                         <!-- CHAT HEADER -->
                         <div class="chat-header">
                             <!-- CHAT HEADER LEFT -->
-                            <div class="chat-header-left">
-                                <img src="img/avatar_1.jpg" alt="">
-                                <div class="chat-info">
-                                    <div class="chat-name">Michele</div>
+                            <div class="chat-header-left" >
+                                <img :src="`img/avatar${contacts[contactIndex].avatar}.jpg`" alt="">
+                                <div class="chat-info" >
+                                    <div class="chat-name">{{contacts[contactIndex].name}}</div>
                                     <div class="last-time-online">Ultimo accesso oggi alle ....</div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                         </div>
                         <!-- CHAT AREA -->
                         <div class="chat-area">
-                            <ul class="chats" v-for="(message, index) in contacts[0].messages" :key="contacts.avatar">
+                            <ul class="chats" v-for="(message, index) in contacts[contactIndex].messages" :key="contacts.avatar">
                                 <li :class="message.status">
                                     {{message.message}}
                                     <span>{{message.date}}</span>

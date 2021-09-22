@@ -83,10 +83,11 @@ const app = new Vue({
                 ],
             },
         ],
+        contactIndex: 0,
     },
     methods: {
-        findKey: function (index) {
-            console.log(this.contacts[index].avatar);
+        changeChat: function (index) {
+            this.contactIndex = index;
         },
     },
 });
