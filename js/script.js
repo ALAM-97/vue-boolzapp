@@ -84,10 +84,41 @@ const app = new Vue({
             },
         ],
         contactIndex: 0,
+        messageText: '',
+        actualDate: '',
     },
     methods: {
         changeChat: function (index) {
             this.contactIndex = index;
         },
+        sendMessage: function() {
+            if (this.messageText != "") {
+                this.contacts[this.contactIndex].messages.push(
+                    {
+                        date: this.actualDate,
+                        message: this.messageText,
+                        status: 'sent'
+                    }
+                )
+                this.messageText = '';
+                setTimeout(() => {
+                    this.contacts[this.contactIndex].messages.push(
+                        {
+                            date: this.actualDate,
+                            message: 'Ok',
+                            status: 'received'
+                        }
+                    )
+                }, 2000);
+            }
+        },
+        getDate: function () {
+            this.actualDate = dayjs().get('date') + '/' +
+                dayjs().get('month') + '/' +
+                dayjs().get('year') + " " +
+                dayjs().get('hour') + ':' +
+                dayjs().get('minute') + ':' +
+                dayjs().get('seconds');
+        },        
     },
 });
