@@ -10,8 +10,8 @@
 body {
     width: 100%;
     height: 100vh;
-    padding: 30px;
-    background: linear-gradient(to top, #d8dbd5 calc(100vh - 100px), #009688 100px);
+    padding: 1.875rem;
+    background: linear-gradient(to top, #d8dbd5 0% 80%, #009688 80% 100%);
 }
 
 /* COMMON */
@@ -21,8 +21,8 @@ body {
 }
 .icons i {
     font-size: 1.3rem;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: .625rem;
+    margin-right: .625rem;
     color: #b1b1b1;
 }
 
@@ -33,12 +33,15 @@ body {
 .input-text i:hover {
     color: rgb(18, 116, 228);
 }
+/* .contact-list li:hover {
+    background-color: #ebe8e8;
+} */
 
 /* MAIN */
 .container {
     display: flex;
     margin: auto;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 3.75rem);
     width: 80%;
     background-color: red;
 }
@@ -51,14 +54,14 @@ body {
 
 /* personal info and its style content */
 .personal-info {
-    height: 70px;
+    height: 4.375rem;
     width: 100%;
     background-color: #eaeaea;
 }
 .pic-and-name {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: .625rem;
 }
 .pic {
     display: flex;
@@ -67,7 +70,7 @@ body {
 .pic img {
     width: 50px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: .625rem;
 }
 .name {
     font-size: 1.1rem;
@@ -77,15 +80,15 @@ body {
 /* notification and its style content */
 .notifications {
     display: flex;
-    height: 80px;
+    height: 5rem;
     width: 100%;
     background-color: #8edafc;
-    padding: 15px;
+    padding: .9375rem;
 }
 .notific-alarm {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
+    line-height: 3.125rem;
     text-align: center;
     background-color: #fff;
     border-radius: 50%;
@@ -98,7 +101,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 15px;
+    margin-left: .9375rem;
 }
 .notific-text a {
     font-size: .9rem;
@@ -108,23 +111,23 @@ body {
 /* find contact and its style content */
 .find-contact {
     position: relative;
-    height: 45px;
+    height: 2.8125rem;
     width: 100%;
     background-color: #fff;
     display: flex;
-    padding: 5px;
+    padding: .3125rem;
 }
 .find-contact input {
     width: 100%;
     height: 100%;
     margin-left: auto;
-    padding-left: 80px;
+    padding-left: 5rem;
     /* color: #acacac; */
     border: 1px solid #e2e2e2;
 }
 .find-contact i {
     position: absolute;
-    left: 32.5px;
+    left: 2.03125rem;
     top: 50%;
     transform: translateY(-50%);
     color: #b6b9bb;
@@ -133,29 +136,29 @@ body {
 /* contact list and its style content */
 .contact-list {
     width: 100%;
-    height: calc(100% - 195px);
+    height: calc(100% - 12.1875rem);
     background-color: #fff;
     overflow-y: scroll;
 }
 .contact-list li {
     display: flex;
     width: 100%;
-    height: 80px;
-    line-height: 60px;
-    padding: 10px 15px;
+    height: 5rem;
+    line-height: 3.75rem;
+    padding: .625rem .9375rem;
     background-color: #fff;
-    border-top: 1px solid #e2e2e2; 
+    border-top: .0625rem solid #e2e2e2; 
 }
-.contact-list li:hover {
-    background-color: #e2e2e2;
+li.active {
+    background-color: #e7e7e7;
 }
 .contact-list li img {
-    width: 60px;
-    height: 60px;
+    width: 3.75rem;
+    height: 3.75rem;
     border-radius: 50%;
 }
 .contact-list li div {
-    margin-left: 20px;
+    margin-left: 1.25rem;
 }
 
 /* RIGHT COLUMN */
@@ -170,9 +173,9 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 70px;
+    height: 4.375rem;
     background-color: #eaeaea;
-    border-left: 1px solid #b4b4b4;
+    border-left: .0625rem solid #b4b4b4;
     padding: 10px;
 }
 .chat-header-left {
@@ -181,7 +184,7 @@ body {
 .chat-header-left img {
     width: 50px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-right: 1.25rem;
 }
 .chat-info {
     margin: auto 0;
@@ -198,9 +201,9 @@ body {
 .chat-area {
     background-image: url(../img/mine.jpg);
     width: 100%;
-    height: calc(100% - 150px);
+    height: calc(100% - 9.375rem);
     overflow-y: scroll;
-    padding: 40px 70px 0 70px;
+    padding: 2.5rem 4.375rem 0 4.375rem;
 }
 .chats {
     display: flex;
@@ -208,12 +211,12 @@ body {
     list-style: none;
 }
 .chats li {
-    padding: 15px;
-    margin-bottom: 20px;
-    min-width: 170px;
-    max-width: 400px;
-    min-height: 70px;
-    border-radius: 10px;
+    padding: .9375rem;
+    margin-bottom: 1.25rem;
+    min-width: 10.625rem;
+    max-width: 25rem;
+    min-height: 4.375rem;
+    border-radius: .625rem;
     position: relative;
 }
 .sent {
@@ -227,8 +230,8 @@ body {
 .chats li span {
     position: absolute;
     font-size: .8rem;
-    bottom: 5px;
-    right: 5px;
+    bottom: .3125rem;
+    right: .3125rem;
     color: #bcc6ba;
 }
 
@@ -238,18 +241,18 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 80px;
+    height: 5rem;
     background-color: #f3eeea;
-    line-height: 90px;
-    padding: 10px 50px;
+    line-height: 5.625rem;
+    padding: .625rem 3.125rem;
 }
 .input-text i {
     font-size: 1.6rem;
 }
 .input-text input {
     width: 100%;
-    margin: 0 30px;
-    padding: 20px;
+    margin: 0 1.875rem;
+    padding: 1.25rem;
     height: 100%;
     border: none;
     font-size: 1rem;

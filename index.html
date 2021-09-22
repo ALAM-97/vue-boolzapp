@@ -53,22 +53,10 @@
                             <i class="fas fa-search"></i>
                         </div>
                         <div class="contact-list">
-                            <ul>
-                                <li>
-                                    <img src="img/avatar_1.jpg" alt="">
-                                    <div>Michele</div>
-                                </li>
-                                <li>
-                                    <img src="img/avatar_2.jpg" alt="">
-                                    <div>Fabio</div>
-                                </li>
-                                <li>
-                                    <img src="img/avatar_3.jpg" alt="">
-                                    <div>Samuele</div>
-                                </li>
-                                <li>
-                                    <img src="img/avatar_4.jpg" alt="">
-                                    <div>Matteo</div>
+                            <ul v-for="(contact, index) in contacts" :key="index" >
+                                <li :class="(index === 0) ? 'active' : null" @click="findKey(index)">
+                                    <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                                    <div>{{contact.name}}</div>
                                 </li>
                             </ul>
                         </div>
@@ -95,18 +83,10 @@
                         </div>
                         <!-- CHAT AREA -->
                         <div class="chat-area">
-                            <ul class="chats">
-                                <li class="sent">
-                                    Hai portato a spasso il cane?
-                                    <span>10/01/2020 15:30:55</span>
-                                </li>
-                                <li class="sent">
-                                    Ricordati di dargli da mangiare!
-                                    <span>10/01/2020 15:30:55</span>
-                                </li>
-                                <li class="received">
-                                    Tutto fatto!
-                                    <span>10/01/2020 15:30:55</span>
+                            <ul class="chats" v-for="(message, index) in contacts[0].messages" :key="contacts.avatar">
+                                <li :class="message.status">
+                                    {{message.message}}
+                                    <span>{{message.date}}</span>
                                 </li>
                             </ul>
                         </div>
