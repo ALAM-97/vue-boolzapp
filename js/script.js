@@ -144,6 +144,7 @@ const app = new Vue({
             }, 1000);
         },
         searchContact: function() {
+            // this.inputSearch = this.inputsearch[0].toUpperCase() + this.inputsearch.slice(1);
             for (let i = 0; i < this.contacts.length; i++) {
                 this.contactName = this.contacts[i].name;
                 if (this.contactName.includes(this.inputSearch)) {
