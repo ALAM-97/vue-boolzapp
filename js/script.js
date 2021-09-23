@@ -85,7 +85,17 @@ const app = new Vue({
         ],
         contactIndex: 0,
         messageText: '',
-        actualDate: ''
+        actualDate: '',
+        onlineStatus: "Ultimo accesso ieri",
+        onlineTime: '',
+        contactNames: [],
+        contactName: '',
+        inputSearch: '',
+    },
+    mounted: function() {
+            this.timeNow();
+            this.onlineAt();
+            this.onlineAt();
     },
     methods: {
         changeChat: function (index) {
@@ -106,10 +116,19 @@ const app = new Vue({
                         {
                             date: this.actualDate,
                             message: 'Ok',
-                            status: 'received'
+                            status: 'received',
                         }
                     )
                 }, 5000);
+                if (this.onlineStatus == "Ultimo accesso ieri" || this.onlineStatus != "Ultimo accesso ieri") {
+                    setTimeout(() => {
+                    this.onlineStatus = "Online";
+                    }, 2000);
+                } 
+                setTimeout(() => {
+                    this.onlineStatus = "Ultimo accesso oggi alle " + this.onlineTime;
+                }, 10000);
+                
             }
         },
         timeNow: function () {
@@ -117,11 +136,22 @@ const app = new Vue({
                 this.actualDate =
                     dayjs().format('DD/MM/YYYY') + " " +
                     dayjs().format('HH:mm:ss');
-
             }, 1000);
+        },
+        onlineAt: function() {
+            setInterval(() => {
+                return this.onlineTime = dayjs().format('HH:mm');
+            }, 1000);
+        },
+        searchContact: function() {
+            for (let i = 0; i < this.contacts.length; i++) {
+                this.contactName = this.contacts[i].name;
+                if (this.contactName.includes(this.inputSearch)) {
+                    this.contacts[i].visible = true;
+                } else {
+                    this.contacts[i].visible = false;
+                }
+            }
         }
     },
-    mounted: function() {
-        this.timeNow();
-    }
 });

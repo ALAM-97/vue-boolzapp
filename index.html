@@ -49,12 +49,12 @@
                         <!-- FIND CONTACT -->
                         </div>
                         <div class="find-contact">
-                            <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat"  v-model="inputSearch" @keyup="searchContact()" @keyup.enter="capitalizeFirstLetter()">
                             <i class="fas fa-search"></i>
                         </div>
                         <div class="contact-list">
                             <ul v-for="(contact, index) in contacts" :key="index" >
-                                <li :class="(index === contactIndex) ? 'active' : null" @click="changeChat(index)">
+                                <li :class="(index === contactIndex) ? 'active' : null" :id="contacts[index].visible ? null : 'hide'" @click="changeChat(index)">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                     <div>{{contact.name}}</div>
                                 </li>
@@ -71,7 +71,8 @@
                                 <img :src="`img/avatar${contacts[contactIndex].avatar}.jpg`" alt="">
                                 <div class="chat-info" >
                                     <div class="chat-name">{{contacts[contactIndex].name}}</div>
-                                    <div class="last-time-online">Ultimo accesso oggi alle ....</div>
+                                    <div class="last-time-online">{{onlineStatus}}</div>
+                                    <!-- <div v-else class="last-time-online">Ultimo accesso oggi alle <span>{{onlineTime}}</span></div> -->
                                 </div>
                             </div>
                             <!-- CHAT HEADER RIGHT -->
@@ -93,7 +94,7 @@
                         <!-- INPUT-TEXT -->
                         <div class="input-text">
                             <i class="far fa-smile"></i>
-                            <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage()" @input="getDate()">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage()">
                             <i class="fas fa-microphone"></i>
                         </div>
                     </section>  

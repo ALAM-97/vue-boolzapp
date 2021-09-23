@@ -132,6 +132,9 @@ body {
     transform: translateY(-50%);
     color: #b6b9bb;
 }
+#hide {
+    display: none;
+}
 
 /* contact list and its style content */
 .contact-list {
