@@ -91,7 +91,6 @@ body {
     margin: auto;
     height: calc(100vh - 3.75rem);
     width: 80%;
-    background-color: red;
 }
 
 /* left-column */
@@ -140,6 +139,7 @@ body {
     text-align: center;
     background-color: #fff;
     border-radius: 50%;
+    margin-right: .9375rem
 }
 .notific-alarm i {
     font-size: 1.4rem;
@@ -149,7 +149,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: .9375rem;
 }
 .notific-text a {
     font-size: .9rem;
@@ -170,7 +169,6 @@ body {
     height: 100%;
     margin-left: auto;
     padding-left: 5rem;
-    /* color: #acacac; */
     border: 1px solid #e2e2e2;
 }
 .find-contact i {
@@ -216,7 +214,6 @@ li.active {
 .right-column {
     width: 65%;
     height: 100%;
-    background-color: green;
 }
 
 /* chat header and its style content */
@@ -268,8 +265,8 @@ li.active {
     max-width: 25rem;
     min-height: 4.375rem;
     border-radius: .625rem;
-    position: relative;
     word-break: break-all;
+    position: relative;
 }
 .fa-info-circle,
 .fa-times-circle {
@@ -280,12 +277,12 @@ li.active {
 }
 .fa-info-circle {
     color: blue;
-    right: -30px;
+    left: -30px;
     
 }
 .fa-times-circle {
     color: red;
-    right: -55px;
+    left: -55px;
 }
 .hide{
     display: none;

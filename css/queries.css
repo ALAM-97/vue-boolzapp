@@ -1,0 +1,180 @@
+@media screen and (max-width: 1420px) {
+    /* COMMON */
+    .icons i {
+        font-size: 1.2rem;
+        margin-left: .575rem;
+        margin-right: .575rem;
+        color: #b1b1b1;
+    }
+    /* MAIN */
+    .container {
+        width: 90%;
+    }
+    .left-column {
+        width: 30%;
+    }
+    .right-column {
+        width: 70%;
+    }
+    .name {
+        font-size: 1rem;
+    }
+    /* notification and its style content */
+    .notific-text div {
+        font-size: .9rem;
+    }
+    .notific-alarm i {
+        font-size: 1.2rem;
+        color: #8edafc;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    /* DARK MODE */
+    .dark-mode .find-contact input::-webkit-input-placeholder{
+        color: rgb(54, 54, 54);;
+    }
+    /* COMMON */
+    .container {
+        width: 100%;
+    }
+    .left-column {
+        width: 95px;
+    }
+    .right-column {
+        width: calc(100% - 90px);
+    }
+    .name {
+        display: none;
+    }
+    /* personal info and its style content */
+    .pic {
+        margin: 10px auto;
+    }
+    .pic img {
+        margin-right: 0;
+    }
+    .pic-and-name {
+        padding: 0rem;
+    }
+    .pic-and-name i {
+        display: none;
+    }
+    /* notification and its style content */
+    .notifications {
+        padding: 0;
+    }
+    .notific-alarm {
+        margin: 15px auto;
+    }
+    .notific-text {
+        display: none;
+    }
+    /* find contact and its style content */
+    .find-contact input {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #e2e2e2;
+    }
+    .find-contact input {
+        padding-left: 0.5rem;
+    }
+    .find-contact input::-webkit-input-placeholder{
+        color: #fff;
+    }
+    .find-contact i {
+        position: absolute;
+        left: 70%;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #b6b9bb;
+        z-index: 0;
+    }
+    /* contact list and its style content */
+    .contact-list li div {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    /* BODY */
+    body {
+        padding: 0;
+    }
+    /* COMMON */
+    .container {
+        height: 100vh;
+    }
+    /* chat area and its style content */
+    .chat-area {
+        padding: 2.5rem 3.5rem 0 3.5rem;
+    }
+    .chats li {
+        padding: .9375rem;
+        margin-bottom: 1.25rem;
+        min-width: 8.5rem;
+        max-width: 15rem;
+        min-height: 4.375rem;
+        border-radius: .625rem;
+        word-break: break-all;
+        position: relative;
+        font-size: .9rem;
+    }
+    .chat-area {
+        padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+    /* input text area and its style content */
+    .input-text {
+        padding: .625rem 1.5625rem;
+    }
+    .input-text i {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    /* BODY */
+    body {
+        padding: 0;
+    }
+    /* COMMON */
+    .container {
+        height: 100vh;
+    }
+    .icons i {
+        font-size: 1rem;
+        margin-left: .035rem;
+        margin-right: .35rem;
+    }
+    /* chat header and its style content */
+    .last-time-online {
+        font-size: .65rem;
+        color: #7c8385;
+    }
+    /* chat area and its style content */
+    .chat-area {
+        padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+    .chats li {
+        padding: .9375rem;
+        margin-bottom: 1.25rem;
+        min-width: 8.5rem;
+        max-width: 15rem;
+        min-height: 4.375rem;
+        border-radius: .625rem;
+        word-break: break-all;
+        position: relative;
+        font-size: .9rem;
+    }
+    /* input text area and its style content */
+    .input-text {
+        padding: .625rem 0;
+    }
+    .input-text i {
+        font-size: 1.2rem;
+        margin: 0 15px;
+    }
+    .input-text input {
+        margin: 0;
+    }
+}

@@ -117,7 +117,8 @@ const app = new Vue({
                     {
                         date: this.actualDate,
                         message: this.messageText,
-                        status: 'sent'
+                        status: 'sent',
+                        btnInfoRemove: false
                     }
                 );
                 this.messageText = '';
