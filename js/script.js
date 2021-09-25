@@ -172,7 +172,11 @@ const app = new Vue({
             }
         },
         showButtons: function(index) {
-            this.contacts[this.contactIndex].messages[index].btnInfoRemove = true;
+            if (this.contacts[this.contactIndex].messages[index].btnInfoRemove == false) {
+                this.contacts[this.contactIndex].messages[index].btnInfoRemove = true;
+            } else {
+                this.contacts[this.contactIndex].messages[index].btnInfoRemove = false;
+            }
         },
         deleteMex: function(index) {
             this.contacts[this.contactIndex].messages.splice(index, 1);
