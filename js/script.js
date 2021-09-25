@@ -6,16 +6,19 @@ const app = new Vue({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                active: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+                        btnInfoRemove: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Ricordati di dargli da mangiare',
-                        status: 'sent'
+                        status: 'sent',
+                        btnInfoRemove: false
                     },
                     {
                         date: '10/01/2020 16:15:22',
@@ -28,10 +31,12 @@ const app = new Vue({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
+                active: false,
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
-                    status: 'sent'
+                    status: 'sent',
+                    btnInfoRemove: false
                 },
                 {
                     date: '20/03/2020 16:30:55',
@@ -49,6 +54,7 @@ const app = new Vue({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                active: false,
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -57,7 +63,8 @@ const app = new Vue({
                 {
                     date: '28/03/2020 10:20:10',
                     message: 'Sicuro di non aver sbagliato chat?',
-                    status: 'sent'
+                    status: 'sent',
+                    btnInfoRemove: false
                 },
                 {
                     date: '28/03/2020 16:15:22',
@@ -70,10 +77,12 @@ const app = new Vue({
                 name: 'Luiso',
                 avatar: '_4',
                 visible: true,
+                active: false,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
-                    status: 'sent'
+                    status: 'sent',
+                    btnInfoRemove: false
                 },
                 {
                     date: '10/01/2020 15:50:00',
@@ -86,11 +95,11 @@ const app = new Vue({
         contactIndex: 0,
         messageText: '',
         actualDate: '',
-        onlineStatus: "Ultimo accesso ieri",
+        onlineStatus: 'Ultimo accesso ieri',
         onlineTime: '',
-        contactNames: [],
         contactName: '',
         inputSearch: '',
+        // btnInfoRemove: false
     },
     mounted: function() {
             this.timeNow();
@@ -102,8 +111,9 @@ const app = new Vue({
             this.contactIndex = index;
         },
         sendMessage: function() {
+            const index = this.contactIndex;
             if (this.messageText != "") {
-                this.contacts[this.contactIndex].messages.push(
+                this.contacts[index].messages.push(
                     {
                         date: this.actualDate,
                         message: this.messageText,
@@ -112,7 +122,7 @@ const app = new Vue({
                 );
                 this.messageText = '';
                 setTimeout(() => {
-                    this.contacts[this.contactIndex].messages.push(
+                    this.contacts[index].messages.push(
                         {
                             date: this.actualDate,
                             message: 'Ok',
@@ -120,15 +130,23 @@ const app = new Vue({
                         }
                     )
                 }, 5000);
-                if (this.onlineStatus == "Ultimo accesso ieri" || this.onlineStatus != "Ultimo accesso ieri") {
-                    setTimeout(() => {
-                    this.onlineStatus = "Online";
-                    }, 2000);
-                } 
-                setTimeout(() => {
-                    this.onlineStatus = "Ultimo accesso oggi alle " + this.onlineTime;
-                }, 10000);
-                
+                if (this.contacts[index].active = true) {
+                        if (this.onlineStatus == 'Ultimo accesso ieri') {
+                        setTimeout(() => {
+                            this.onlineStatus = "Online";
+                            }, 2000)
+                        setTimeout(() => {
+                            this.onlineStatus = "Ultimo accesso oggi alle " + this.onlineTime;
+                            }, 10000);
+                        }
+                    }
+                } else {
+                    this.onlineStatus = 'Ultimo accesso ieri';
+                    for (let i = 0; i < this.contacts.length; i++) {
+                        if (this.contacts[i].active = true) {
+                            return this.contacts[i].active = false;
+                        }
+                }
             }
         },
         timeNow: function () {
@@ -144,15 +162,20 @@ const app = new Vue({
             }, 1000);
         },
         searchContact: function() {
-            // this.inputSearch = this.inputsearch[0].toUpperCase() + this.inputsearch.slice(1);
             for (let i = 0; i < this.contacts.length; i++) {
                 this.contactName = this.contacts[i].name;
-                if (this.contactName.includes(this.inputSearch)) {
+                if (this.contactName.toLowerCase().includes(this.inputSearch)) {
                     this.contacts[i].visible = true;
                 } else {
                     this.contacts[i].visible = false;
                 }
             }
+        },
+        showButtons: function(index) {
+            this.contacts[this.contactIndex].messages[index].btnInfoRemove = true;
+        },
+        deleteMex: function(index) {
+            this.contacts[this.contactIndex].messages.splice(index, 1);
         }
     },
 });

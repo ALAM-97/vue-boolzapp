@@ -33,9 +33,10 @@ body {
 .input-text i:hover {
     color: rgb(18, 116, 228);
 }
-/* .contact-list li:hover {
-    background-color: #ebe8e8;
-} */
+.fa-info-circle:hover ,
+.fa-times-circle:hover {
+    font-size: 1.5rem;
+}
 
 /* MAIN */
 .container {
@@ -221,6 +222,26 @@ li.active {
     min-height: 4.375rem;
     border-radius: .625rem;
     position: relative;
+    word-break: break-all;
+}
+.fa-info-circle,
+.fa-times-circle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3rem;
+}
+.fa-info-circle {
+    color: blue;
+    right: -30px;
+    
+}
+.fa-times-circle {
+    color: red;
+    right: -55px;
+}
+.hide{
+    display: none;
 }
 .sent {
     align-self: flex-end;

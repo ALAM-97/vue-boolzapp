@@ -49,9 +49,10 @@
                         <!-- FIND CONTACT -->
                         </div>
                         <div class="find-contact">
-                            <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat"  v-model="inputSearch" @keyup="searchContact()" >
+                            <input type="text" placeholder="Cerca o inizia una nuova chat"  v-model="inputSearch" @keyup="searchContact()">
                             <i class="fas fa-search"></i>
                         </div>
+                        <!-- CONTACT LIST -->
                         <div class="contact-list">
                             <ul v-for="(contact, index) in contacts" :key="index" >
                                 <li :class="(index === contactIndex) ? 'active' : null" :id="contacts[index].visible ? null : 'hide'" @click="changeChat(index)">
@@ -71,9 +72,8 @@
                                 <img :src="`img/avatar${contacts[contactIndex].avatar}.jpg`" alt="">
                                 <div class="chat-info" >
                                     <div class="chat-name">{{contacts[contactIndex].name}}</div>
-                                    <div v-if="(contactIndex)" class="last-time-online">{{onlineStatus}}</div>
-                                    <div v-else class="last-time-online">Ultimo accesso ieri</div>
-                                    <!-- <div v-else class="last-time-online">Ultimo accesso oggi alle <span>{{onlineTime}}</span></div> -->
+                                    <div v-if="(contacts[contactIndex].active === false)" class="last-time-online">Ultimo accesso ieri</div>
+                                    <div v-else class="last-time-online">{{onlineStatus}}</div>
                                 </div>
                             </div>
                             <!-- CHAT HEADER RIGHT -->
@@ -86,7 +86,13 @@
                         <!-- CHAT AREA -->
                         <div class="chat-area">
                             <ul class="chats" v-for="(message, index) in contacts[contactIndex].messages" :key="contacts.avatar">
-                                <li :class="message.status">
+                                <li v-if="(message.status == 'sent')" :class="message.status" @click="showButtons(index)">
+                                    {{message.message}}
+                                    <span>{{message.date}}</span>
+                                        <i v-if="(contacts[contactIndex].messages[index].btnInfoRemove == false) ? null : 'hide'" class="fas fa-info-circle"></i>
+                                        <i v-if="(contacts[contactIndex].messages[index].btnInfoRemove == false) ? null : 'hide'" class="fas fa-times-circle" @click="deleteMex(index)"></i>
+                                </li>
+                                <li v-else :class="message.status">
                                     {{message.message}}
                                     <span>{{message.date}}</span>
                                 </li>
@@ -95,7 +101,7 @@
                         <!-- INPUT-TEXT -->
                         <div class="input-text">
                             <i class="far fa-smile"></i>
-                            <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage()">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @ keyup="online()" @keyup.enter="sendMessage()">
                             <i class="fas fa-microphone"></i>
                         </div>
                     </section>  
