@@ -103,7 +103,7 @@
     }
     /* COMMON */
     .container {
-        height: 100vh;
+        height: 90vh;
     }
     /* chat area and its style content */
     .chat-area {
@@ -139,7 +139,7 @@
     }
     /* COMMON */
     .container {
-        height: 100vh;
+        height: 90vh;
     }
     .icons i {
         font-size: 1rem;
@@ -153,16 +153,16 @@
     }
     /* chat area and its style content */
     .chat-area {
-        padding: 1.5rem 1.5rem 0 1.5rem;
+        padding: 1.5rem 1rem 0 1rem;
     }
     .chats li {
         padding: .9375rem;
         margin-bottom: 1.25rem;
         min-width: 8.5rem;
-        max-width: 15rem;
+        max-width: 10.9375rem;
         min-height: 4.375rem;
         border-radius: .625rem;
-        word-break: break-all;
+        word-break: normal;
         position: relative;
         font-size: .9rem;
     }

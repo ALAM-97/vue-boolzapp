@@ -85,9 +85,9 @@
                                 </div>
                         </div>
                         <!-- CHAT AREA -->
-                        <div class="chat-area">
+                        <div class="chat-area" id="chat-area-id">
                             <ul class="chats" v-for="(message, index) in contacts[contactIndex].messages" :key="contacts.avatar">
-                                <li v-if="(message.status == 'sent')" :class="message.status" @click="showButtons(index)">
+                                <li v-if="(message.status == 'sent')" :class="message.status" @click="showButtons(index)" >
                                     {{message.message}}
                                     <span>{{message.date}}</span>
                                         <i v-if="(contacts[contactIndex].messages[index].btnInfoRemove == false) ? null : 'hide'" class="fas fa-info-circle"></i>
