@@ -180,6 +180,10 @@ const app = new Vue({
         },
         deleteMex: function(index) {
             this.contacts[this.contactIndex].messages.splice(index, 1);
+        },
+        darkMode: function() {
+            const element = document.body;
+            element.classList.toggle("dark-mode")
         }
     },
 });

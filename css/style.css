@@ -13,6 +13,53 @@ body {
     padding: 1.875rem;
     background: linear-gradient(to top, #d8dbd5 0% 80%, #009688 80% 100%);
 }
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c5c5c5;
+    border-radius: 4.5px;
+}
+
+/* DARK MODE */
+.dark-mode {
+    background: linear-gradient(to top, #424242 0% 80%, #009688 80% 100%);
+}
+.dark-mode .personal-info,
+.dark-mode .chat-header,
+.dark-mode .find-contact,
+.dark-mode .find-contact input,
+.dark-mode .input-text,
+.dark-mode .input-text input {
+    background-color: rgb(54, 54, 54);
+    color: #fff;
+}
+.dark-mode .contact-list,
+.dark-mode .contact-list li {
+    background-color: rgb(61, 61, 61);
+    border-top: 1px solid rgb(87, 86, 86);
+    color: #fff;
+}
+.dark-mode .input-text input,
+.dark-mode .find-contact input {
+    border: 1px solid rgb(87, 86, 86);
+}
+.dark-mode .chat-header {
+    border-left: 1px solid rgb(87, 86, 86);
+}
+.dark-mode ::-webkit-scrollbar-thumb {
+    background-color: rgb(136, 136, 136);
+    border-radius: 4.5px;
+}
+
+/* DARK MODE HOVER EFFECTS */
+.dark-mode .icons i:hover {
+    color: #e0e0e0;
+}
+.dark-mode li.active {
+    background-color: rgb(87, 87, 87);
+}
 
 /* COMMON */
 .icons {
