@@ -103,7 +103,7 @@
     }
     /* COMMON */
     .container {
-        height: 90vh;
+        height: 100vh;
     }
     /* chat area and its style content */
     .chat-area {
@@ -139,7 +139,7 @@
     }
     /* COMMON */
     .container {
-        height: 90vh;
+        height: 100vh;
     }
     .icons i {
         font-size: 1rem;
