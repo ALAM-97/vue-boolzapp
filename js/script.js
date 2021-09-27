@@ -165,7 +165,7 @@ const app = new Vue({
         searchContact: function() {
             for (let i = 0; i < this.contacts.length; i++) {
                 this.contactName = this.contacts[i].name;
-                if (this.contactName.toLowerCase().includes(this.inputSearch)) {
+                if (this.contactName.toLowerCase().includes(this.inputSearch.toLowerCase())) {
                     this.contacts[i].visible = true;
                 } else {
                     this.contacts[i].visible = false;
