@@ -7,6 +7,7 @@ const app = new Vue({
                 avatar: '_1',
                 visible: true,
                 active: false,
+                onlinePeriod: 'Ultimo accesso ieri',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -32,6 +33,7 @@ const app = new Vue({
                 avatar: '_2',
                 visible: true,
                 active: false,
+                onlinePeriod: 'Ultimo accesso ieri',
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
@@ -55,6 +57,7 @@ const app = new Vue({
                 avatar: '_3',
                 visible: true,
                 active: false,
+                onlinePeriod: 'Ultimo accesso ieri',
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -74,10 +77,11 @@ const app = new Vue({
                 ],
             },
             {
-                name: 'Luiso',
+                name: 'Giovanni',
                 avatar: '_4',
                 visible: true,
                 active: false,
+                onlinePeriod: 'Ultimo accesso ieri',
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -104,12 +108,17 @@ const app = new Vue({
     mounted: function() {
             this.timeNow();
             this.onlineAt();
-            this.onlineAt();
+    },
+    updated() {
+        //scroll to the bottom message just after the uptdate page
+        document.getElementsByClassName("chat-area")[0].scrollTop = document.getElementsByClassName("chat-area")[0].scrollHeight;
     },
     methods: {
         changeChat: function (index) {
             this.contactIndex = index;
+            this.onlineStatus[index] = 'Ultimo accesso ieri'
         },
+        // FUNZIONE PER L'INVIO DEL MESSAGGIO
         sendMessage: function() {
             const index = this.contactIndex;
             if (this.messageText != "") {
@@ -131,25 +140,20 @@ const app = new Vue({
                         }
                     )
                 }, 5000);
-                if (this.contacts[index].active = true) {
-                        if (this.onlineStatus == 'Ultimo accesso ieri') {
+                this.contacts[index].active = true;
+                if (this.contacts[index].active == true) {
+                        if (this.contacts[index].onlinePeriod == 'Ultimo accesso ieri') {
                         setTimeout(() => {
-                            this.onlineStatus = "Online";
+                            this.contacts[index].onlinePeriod = "Online";
                             }, 2000)
                         setTimeout(() => {
-                            this.onlineStatus = "Ultimo accesso oggi alle " + this.onlineTime;
+                            this.contacts[index].onlinePeriod = "Ultimo accesso oggi alle " + this.onlineTime;
                             }, 10000);
                         }
                     }
-                } else {
-                    this.onlineStatus = 'Ultimo accesso ieri';
-                    for (let i = 0; i < this.contacts.length; i++) {
-                        if (this.contacts[i].active = true) {
-                            return this.contacts[i].active = false;
-                        }
-                }
             }
         },
+        // FUNZIONE PER ORA ATTUALE
         timeNow: function () {
             setInterval(() => {
                 this.actualDate =
@@ -157,11 +161,13 @@ const app = new Vue({
                     dayjs().format('HH:mm:ss');
             }, 1000);
         },
+        // FUNZIONE PER ORA ACCESSO ONLINE
         onlineAt: function() {
             setInterval(() => {
-                return this.onlineTime = dayjs().format('HH:mm');
+                return this.onlineTime = dayjs().format('HH:mm:ss');
             }, 1000);
         },
+        // FUNZIONE PER CERCARE CHAT
         searchContact: function() {
             for (let i = 0; i < this.contacts.length; i++) {
                 this.contactName = this.contacts[i].name;
@@ -172,6 +178,7 @@ const app = new Vue({
                 }
             }
         },
+        // FUNZIONE PER MOSTRARE BOTTONI DI INFO E DELETE
         showButtons: function(index) {
             if (this.contacts[this.contactIndex].messages[index].btnInfoRemove == false) {
                 this.contacts[this.contactIndex].messages[index].btnInfoRemove = true;
@@ -179,9 +186,11 @@ const app = new Vue({
                 this.contacts[this.contactIndex].messages[index].btnInfoRemove = false;
             }
         },
+        // FUNZIONE PER CANCELLARE IL MESSAGGIO
         deleteMex: function(index) {
             this.contacts[this.contactIndex].messages.splice(index, 1);
         },
+        //FUNZIONE PER LA DARK MODE
         darkMode: function() {
             const element = document.body;
             element.classList.toggle("dark-mode")

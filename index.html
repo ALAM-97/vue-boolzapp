@@ -29,7 +29,7 @@
                             <div class="pic-and-name">
                                 <div class="pic">
                                     <img src="img/avatar_io.jpg" alt="foto-profilo">
-                                    <div class="name">Nome Utente</div>
+                                    <div class="name">Alessandra</div>
                                 </div>
                                 <div class="icons">
                                     <i class="fas fa-circle-notch"></i>
@@ -74,7 +74,7 @@
                                 <div class="chat-info" >
                                     <div class="chat-name">{{contacts[contactIndex].name}}</div>
                                     <div v-if="(contacts[contactIndex].active === false)" class="last-time-online">Ultimo accesso ieri</div>
-                                    <div v-else class="last-time-online">{{onlineStatus}}</div>
+                                    <div v-else class="last-time-online">{{contacts[contactIndex].onlinePeriod}}</div>
                                 </div>
                             </div>
                             <!-- CHAT HEADER RIGHT -->
@@ -103,7 +103,7 @@
                         <div class="input-text">
                             <i class="far fa-smile"></i>
                             <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage()">
-                            <i class="fas fa-microphone"></i>
+                            <i @click="record()" class="fas fa-microphone"></i>
                         </div>
                     </section>  
                 </div>
